@@ -32,5 +32,5 @@ jobs:
       run: |
         cd server
         docker build -t $ECR_REPOSITORY .
-        docker tag p81 $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s) .
+        docker tag $ECR_REPOSITORY $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s) .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s)
