@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "helm-test.fullname" . }}
+  labels:
+    app: {{ include "helm-test.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "helm-test.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "helm-test.name" . }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.image.repository }}
+        imagePullPolicy: {{ .Values.image.pullPolicy}}
+        ports:
+        - containerPort: 8000
+        resources:
+{{ toYaml .Values.resources | indent 10 }}

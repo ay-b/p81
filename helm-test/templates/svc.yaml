@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-eip-allocations: {{ .Values.eip.allocation }}
+  labels:
+    app: {{ include "helm-test.name" . }}
+  name: {{ include "helm-test.name" .}}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: {{ include "helm-test.name" .}}
+  ports:
+  - port: {{ .Values.service.port }}
+    targetPort: {{ .Values.service.targetPort }}

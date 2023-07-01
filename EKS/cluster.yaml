@@ -1,0 +1,22 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: AlexanderYankovskiyBetcher
+  region: us-east-1
+  tags:
+    Owner: "Nati"
+    Department: "DevOps"
+    Temp: "True"
+vpc:
+  clusterEndpoints:
+    publicAccess:  true
+    privateAccess: true
+
+nodeGroups:
+  - name: nodegroup-1
+    instanceType: t3.nano
+    desiredCapacity: 2
+
+
