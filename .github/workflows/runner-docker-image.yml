@@ -33,5 +33,5 @@ jobs:
         cd deployment_runner
         set +x
         docker build -t $ECR_REPOSITORY .
-        docker imagetag $ECR_REPOSITORY $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s) .
+        docker image tag $ECR_REPOSITORY $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s) .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s)
