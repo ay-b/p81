@@ -35,9 +35,4 @@ RUN curl  https://releases.hashicorp.com/packer/1.8.6/packer_1.8.6_linux_amd64.z
     rm packer.zip &&\
     mv packer /usr/local/bin/
 
-# RUN curl -L https://github.com/hetznercloud/cli/releases/download/v1.33.1/hcloud-linux-amd64.tar.gz -o hcloud.tar.gz &&\
-#     tar -xzf hcloud.tar.gz &&\
-#     rm hcloud.tar.gz &&\
-#     mv hcloud /usr/local/bin
-
 CMD /usr/bin/bash
