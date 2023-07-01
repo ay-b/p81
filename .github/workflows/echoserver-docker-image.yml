@@ -33,5 +33,5 @@ jobs:
         cd server
         echo "Creating image tagged ${ECR_REGISTRY}/${ECR_REPOSITORY}:$(date +%s)"
         docker build -t ${ECR_REPOSITORY} .
-        docker image tag ${ECR_REPOSITORY} ${ECR_REGISTRY}/${ECR_REPOSITORY}:$(date +%s) .
+        docker image tag ${ECR_REPOSITORY} ${ECR_REGISTRY}/${ECR_REPOSITORY}:$(date +%s)
         docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:$(date +%s)
