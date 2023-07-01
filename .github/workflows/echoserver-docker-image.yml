@@ -31,5 +31,5 @@ jobs:
         ECR_REPOSITORY: p81
       run: |
         cd server
-        docker build -t $ECR_REPOSITORY:$(date +%s)
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s)
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s)

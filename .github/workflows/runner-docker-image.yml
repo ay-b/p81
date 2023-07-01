@@ -31,5 +31,5 @@ jobs:
         ECR_REPOSITORY: ayb-deployment-runner
       run: |
         cd deployment_runner
-        docker build -t $ECR_REPOSITORY:$(date +%s) .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s) .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s)
