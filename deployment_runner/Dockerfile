@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 # TODO Reduce RUN layers
 
 RUN apt update && apt upgrade -y &&\
-    DEBIAN_FRONTEND=noninteractive apt install curl gnupg2 git unzip ansible -y
+    DEBIAN_FRONTEND=noninteractive apt install curl gnupg2 git unzip jq wget -y
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
@@ -34,5 +34,7 @@ RUN curl  https://releases.hashicorp.com/packer/1.8.6/packer_1.8.6_linux_amd64.z
     unzip packer.zip &&\
     rm packer.zip &&\
     mv packer /usr/local/bin/
+
+# TODO Clean up all the mess after installation to make image smaller
 
 CMD /usr/bin/bash
